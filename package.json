@@ -1,0 +1,41 @@
+{
+  "name": "yaqeen",
+  "version": "1.0.0",
+  "description": "منصة ذكاء اصطناعي متقدمة للكشف عن التلاعب بالوسائط والتحقق من أصالة الصور ومقاطع الفيديو",
+  "main": "backend/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js",
+    "test": "node --test tests/**/*.test.js",
+    "build": "echo 'Build complete'",
+    "lint": "echo 'Linting complete'"
+  },
+  "keywords": [
+    "media-forensics",
+    "deepfake-detection",
+    "image-authenticity",
+    "ai-verification",
+    "digital-forensics"
+  ],
+  "author": "Hassan Mohamed Hassan Ahmed",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "multer": "^1.4.5-lts.1",
+    "dotenv": "^16.3.1",
+    "sharp": "^0.32.6",
+    "exifparser": "^0.1.12",
+    "crypto": "^1.0.1",
+    "axios": "^1.6.2",
+    "sqlite3": "^5.1.6",
+    "better-sqlite3": "^9.0.0",
+    "drizzle-orm": "^0.28.6",
+    "drizzle-kit": "^0.20.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
+
