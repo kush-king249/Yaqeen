@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaqeen - برهان الحقيقة | منصة التحقق من أصالة الوسائط</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+</head>
+<body>
+    <div id="app">
+        <!-- شريط التنقل -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-brand">
+                    <img src="../assets/logo.png" alt="Yaqeen Logo" class="logo">
+                    <div class="brand-text">
+                        <h1>Yaqeen</h1>
+                        <p>برهان الحقيقة</p>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#features">الميزات</a></li>
+                    <li><a href="#analyzer">المحلل</a></li>
+                    <li><a href="#about">حول</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- القسم الرئيسي -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>التحقق من أصالة الوسائط بقوة الذكاء الاصطناعي</h2>
+                <p>كشف التلاعب والتزييف العميق والصور المولدة بالذكاء الاصطناعي</p>
+                <button class="cta-button" onclick="scrollToAnalyzer()">ابدأ التحليل الآن</button>
+            </div>
+        </section>
+
+        <!-- قسم الميزات -->
+        <section id="features" class="features">
+            <h2>الميزات الرئيسية</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>تحليل البيانات الوصفية</h3>
+                    <p>فحص شامل لبيانات EXIF والمعلومات الوصفية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧬</div>
+                    <h3>كشف التزييف العميق</h3>
+                    <p>كشف الصور والفيديوهات المزيفة بدقة عالية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>كشف الذكاء الاصطناعي</h3>
+                    <p>تحديد الصور المولدة بالكامل بواسطة الذكاء الاصطناعي</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>مقياس الأصالة</h3>
+                    <p>درجة واضحة وموثوقة لأصالة الملف</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>التوثيق الشرعي</h3>
+                    <p>حساب Hash وسلسلة الحضانة الرقمية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>تقارير احترافية</h3>
+                    <p>إنشاء تقارير PDF وJSON مفصلة</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم المحلل -->
+        <section id="analyzer" class="analyzer">
+            <h2>محلل الوسائط</h2>
+            <div class="analyzer-container">
+                <!-- منطقة التحميل -->
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-icon">📁</div>
+                    <h3>اسحب الملف هنا أو انقر للتحميل</h3>
+                    <p>الملفات المدعومة: صور (JPG, PNG, GIF, WebP) وفيديوهات (MP4, MOV)</p>
+                    <p class="file-size-limit">الحد الأقصى للملف: 50 MB</p>
+                    <input type="file" id="fileInput" accept="image/*,video/*" style="display: none;">
+                </div>
+
+                <!-- منطقة النتائج -->
+                <div id="resultsContainer" class="results-container" style="display: none;">
+                    <!-- شريط التقدم -->
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+
+                    <!-- بطاقة المعلومات الأساسية -->
+                    <div class="info-card">
+                        <h3>معلومات الملف</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>اسم الملف:</label>
+                                <span id="fileName">-</span>
+                            </div>
+                            <div class="info-item">
+                                <label>حجم الملف:</label>
+                                <span id="fileSize">-</span>
+                            </div>
+                            <div class="info-item">
+                                <label>نوع الملف:</label>
+                                <span id="fileType">-</span>
+                            </div>
+                            <div class="info-item">
+                                <label>وقت التحليل:</label>
+                                <span id="analysisTime">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- مقياس الأصالة -->
+                    <div class="authenticity-card">
+                        <h3>مقياس الأصالة</h3>
+                        <div class="authenticity-meter">
+                            <div class="meter-bar">
+                                <div class="meter-fill" id="meterFill"></div>
+                            </div>
+                            <div class="meter-label">
+                                <span id="authenticityScore">0</span>%
+                            </div>
+                        </div>
+                        <div class="verdict" id="verdict">-</div>
+                    </div>
+
+                    <!-- نتائج التحليل -->
+                    <div class="analysis-results">
+                        <div class="result-section">
+                            <h4>تحليل البيانات الوصفية</h4>
+                            <div id="metadataResults" class="result-content">-</div>
+                        </div>
+
+                        <div class="result-section">
+                            <h4>كشف التزييف العميق</h4>
+                            <div id="deepfakeResults" class="result-content">-</div>
+                        </div>
+
+                        <div class="result-section">
+                            <h4>كشف الذكاء الاصطناعي</h4>
+                            <div id="aiResults" class="result-content">-</div>
+                        </div>
+                    </div>
+
+                    <!-- أزرار الإجراءات -->
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="generateReport()">إنشاء تقرير PDF</button>
+                        <button class="btn btn-secondary" onclick="downloadJSON()">تحميل JSON</button>
+                        <button class="btn btn-outline" onclick="resetAnalyzer()">تحليل ملف جديد</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم حول -->
+        <section id="about" class="about">
+            <h2>حول Yaqeen</h2>
+            <div class="about-content">
+                <p>
+                    <strong>Yaqeen</strong> هي منصة متقدمة للكشف عن التلاعب بالوسائط والتحقق من أصالة الصور ومقاطع الفيديو.
+                    تستخدم تقنيات الذكاء الاصطناعي والتعلم العميق لتوفير تحليل شامل وموثوق.
+                </p>
+                <p>
+                    تم تطويرها لاستخدام المحققين والصحفيين والمتخصصين في الطب الشرعي الرقمي.
+                </p>
+                <p style="margin-top: 20px; text-align: center; color: #666;">
+                    <strong>تم التطوير بواسطة:</strong> Hassan Mohamed Hassan Ahmed<br>
+                    <strong>الإصدار:</strong> 1.0.0<br>
+                    <strong>الترخيص:</strong> MIT
+                </p>
+            </div>
+        </section>
+
+        <!-- التذييل -->
+        <footer class="footer">
+            <p>&copy; 2024 Yaqeen - برهان الحقيقة. جميع الحقوق محفوظة.</p>
+            <p>تم التطوير بواسطة <strong>Hassan Mohamed Hassan Ahmed</strong></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
